@@ -1,10 +1,12 @@
-package com.example.jasdipc.mafiapartygame;
+package com.example.jasdipc.mafiapartygame.Activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.jasdipc.mafiapartygame.R;
 import com.example.jasdipc.mafiapartygame.Singletons.*;
 import com.example.jasdipc.mafiapartygame.Verification.*;
 
@@ -27,24 +29,31 @@ public class LoginActivity extends AppCompatActivity {
         initReferences();
         initOnClickListeners();
 
-
-
         //nearbyHost = NearbyHost.getInstance(LoginActivity.this);
         //nearbyClient = NearbyClient.getInstance(LoginActivity.this);
     }
 
     private void initOnClickListeners() {
+
+        final Intent i = new Intent(LoginActivity.this, LobbyActivity.class);
+
         host_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                nearbyHost = NearbyHost.getInstance(LoginActivity.this);
+                i.putExtra("status", "host");
+                finish();
+                startActivity(i);
             }
         });
 
         client_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                nearbyClient = NearbyClient.getInstance(LoginActivity.this);
+                i.putExtra("status", "client");
+                finish();
+                startActivity(i);
             }
         });
     }
