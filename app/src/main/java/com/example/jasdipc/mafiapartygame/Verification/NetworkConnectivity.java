@@ -1,4 +1,4 @@
-package com.example.jasdipc.mafiapartygame;
+package com.example.jasdipc.mafiapartygame.Verification;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
