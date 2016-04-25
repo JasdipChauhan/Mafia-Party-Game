@@ -1,11 +1,10 @@
 package com.example.jasdipc.mafiapartygame.Models;
 
 
-public class HostMember {
-
+public class Member {
     private String name;
 
-    public HostMember(String name) {
+    public Member(String name) {
         this.name = name;
     }
 

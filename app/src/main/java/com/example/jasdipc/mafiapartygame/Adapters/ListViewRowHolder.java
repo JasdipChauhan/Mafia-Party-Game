@@ -20,4 +20,6 @@ public class ListViewRowHolder extends RecyclerView.ViewHolder {
 
         itemView.setClickable(true);
     }
+
+
 }

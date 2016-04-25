@@ -4,10 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.LinearLayout;
 
 import com.example.jasdipc.mafiapartygame.Adapters.LobbyAdapter;
-import com.example.jasdipc.mafiapartygame.Models.ClientMember;
+import com.example.jasdipc.mafiapartygame.Models.Member;
 import com.example.jasdipc.mafiapartygame.R;
 
 import java.util.ArrayList;
@@ -16,7 +15,7 @@ import java.util.List;
 public class LobbyActivity extends AppCompatActivity {
 
     private RecyclerView rv;
-    private List<ClientMember> clientMembers = new ArrayList<>();
+    private List<Member> clientMembers = new ArrayList<>();
     private LobbyAdapter adapter;
 
     @Override
@@ -29,7 +28,7 @@ public class LobbyActivity extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(LobbyActivity.this);
         rv.setLayoutManager(llm);
 
-        adapter =  new LobbyAdapter();
+        adapter =  new LobbyAdapter(clientMembers, LobbyActivity.this);
         rv.setAdapter(adapter);
     }
 }
