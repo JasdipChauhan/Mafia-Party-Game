@@ -9,8 +9,20 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.jasdipc.mafiapartygame.LoginActivity">
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:id="@+id/host_button"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:text="host"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/client_button"
+        android:text="client"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"/>
 </RelativeLayout>

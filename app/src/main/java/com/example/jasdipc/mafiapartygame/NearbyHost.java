@@ -13,9 +13,7 @@ public class NearbyHost implements Connections.MessageListener,
 
     private static NearbyHost nearbyHost;
     private Context mContext;
-    private GoogleApiClient mGoogleApiClient;
-
-    private boolean isConnected;
+    private ApiClient apiClient;
 
     public static NearbyHost getInstance(Context mContext) {
         if (nearbyHost == null) {
@@ -26,6 +24,8 @@ public class NearbyHost implements Connections.MessageListener,
 
     private NearbyHost(Context mContext) {
         this.mContext = mContext;
+        apiClient = ApiClient.getApiClientInstance(mContext);
+        apiClient.connect();
     }
 
     @Override

@@ -15,15 +15,17 @@ public class ApiClient implements GoogleApiClient.ConnectionCallbacks,
     private Context mContext;
     private boolean isConnected;
 
-    public static ApiClient getApiClientInstance() {
+    public static ApiClient getApiClientInstance(Context mContext) {
         if (apiClient == null) {
-            apiClient = new ApiClient();
+            apiClient = new ApiClient(mContext);
         }
 
         return apiClient;
     }
 
-    private ApiClient() {
+    private ApiClient(Context mContext) {
+        this.mContext = mContext;
+
         mGoogleApiClient = new GoogleApiClient.Builder(mContext)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
@@ -41,6 +43,10 @@ public class ApiClient implements GoogleApiClient.ConnectionCallbacks,
         if (mGoogleApiClient != null && mGoogleApiClient.isConnected() && !mGoogleApiClient.isConnecting()) {
             mGoogleApiClient.disconnect();
         }
+    }
+
+    public GoogleApiClient getmGoogleApiClient() {
+        return mGoogleApiClient;
     }
 
     @Override
