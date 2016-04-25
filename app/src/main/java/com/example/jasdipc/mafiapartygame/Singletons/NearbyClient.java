@@ -1,4 +1,4 @@
-package com.example.jasdipc.mafiapartygame;
+package com.example.jasdipc.mafiapartygame.Singletons;
 
 import android.content.Context;
 
