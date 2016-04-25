@@ -8,6 +8,7 @@ public class LoginActivity extends AppCompatActivity {
     private NearbyHost nearbyHost;
     private NearbyClient nearbyClient;
     private ApiClient apiClient;
+    private NetworkConnectivity networkConnectivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,5 +34,13 @@ public class LoginActivity extends AppCompatActivity {
         apiClient = ApiClient.getApiClientInstance(LoginActivity.this);
         apiClient.connect();
     }
+
+    private void initNetworkVerification() {
+        networkConnectivity = new NetworkConnectivity(LoginActivity.this);
+        if (!networkConnectivity.isConnectedToNetwork()) {
+            //create an alert dialog
+        }
+    }
+
 
 }

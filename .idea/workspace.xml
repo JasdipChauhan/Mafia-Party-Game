@@ -10,8 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d12d8a82-c19c-48b6-ab08-b8d4088161c1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/NetworkConnectivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/LoginActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/NetworkConnectivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/NetworkConnectivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Mafia-Party-Game.iws" />
@@ -37,8 +37,22 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <caret line="0" column="31" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NetworkConnectivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/NetworkConnectivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.2506964">
+              <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#266#267#0" expanded="true" />
+                <element signature="e#306#307#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -50,20 +64,6 @@
               <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NetworkConnectivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/NetworkConnectivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2896936">
-              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#266#267#0" expanded="true" />
-                <element signature="e#306#307#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2371,7 +2371,13 @@
       <option name="project" value="LOCAL" />
       <updated>1461618116599</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="verify if user is connected to a network">
+      <created>1461618386676</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1461618386676</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2418,7 +2424,8 @@
     <MESSAGE value="added dependencies and permissions that are needed for the game" />
     <MESSAGE value="added google api client singleton to ensure only one instance is created" />
     <MESSAGE value="working on the logic of hosting and being a client of a mafia game" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on the logic of hosting and being a client of a mafia game" />
+    <MESSAGE value="verify if user is connected to a network" />
+    <option name="LAST_COMMIT_MESSAGE" value="verify if user is connected to a network" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -2497,15 +2504,15 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <caret line="0" column="31" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/NetworkConnectivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2896936">
-          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.2506964">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#266#267#0" expanded="true" />
