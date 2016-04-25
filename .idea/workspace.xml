@@ -10,11 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d12d8a82-c19c-48b6-ab08-b8d4088161c1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/ApiClient.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/ApiClient.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/NetworkConnectivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/LoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/NearbyClient.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/NearbyClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/NearbyHost.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/NearbyHost.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Mafia-Party-Game.iws" />
@@ -40,19 +37,33 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NearbyHost.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NearbyHost.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/NearbyHost.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.74930364">
+            <state vertical-scroll-proportion="0.0">
               <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NetworkConnectivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/NetworkConnectivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.2896936">
+              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#266#267#0" expanded="true" />
+                <element signature="e#306#307#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -125,6 +136,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Singleton" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -2010,9 +2022,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/GoogleAPIClient.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/ApiClient.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/NearbyHost.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/NearbyClient.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/NetworkConnectivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/LoginActivity.java" />
       </list>
     </option>
   </component>
@@ -2352,7 +2365,13 @@
       <option name="project" value="LOCAL" />
       <updated>1461617154893</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="working on the logic of hosting and being a client of a mafia game">
+      <created>1461618116599</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1461618116599</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2398,7 +2417,8 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="added dependencies and permissions that are needed for the game" />
     <MESSAGE value="added google api client singleton to ensure only one instance is created" />
-    <option name="LAST_COMMIT_MESSAGE" value="added google api client singleton to ensure only one instance is created" />
+    <MESSAGE value="working on the logic of hosting and being a client of a mafia game" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on the logic of hosting and being a client of a mafia game" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -2417,14 +2437,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35843372">
           <caret line="54" column="13" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2474,10 +2486,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/NearbyHost.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.74930364">
+        <state vertical-scroll-proportion="0.0">
           <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jasdipc/mafiapartygame/NetworkConnectivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2896936">
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#266#267#0" expanded="true" />
+            <element signature="e#306#307#0" expanded="true" />
           </folding>
         </state>
       </provider>
