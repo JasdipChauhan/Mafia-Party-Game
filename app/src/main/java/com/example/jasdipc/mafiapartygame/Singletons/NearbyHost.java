@@ -45,7 +45,7 @@ public class NearbyHost implements Connections.MessageListener,
 
         }
 
-        Nearby.Connections.startAdvertising(apiClient.getmGoogleApiClient(), "advertising", null, 0L, this).setResultCallback(new ResultCallback<Connections.StartAdvertisingResult>() {
+        Nearby.Connections.startAdvertising(apiClient.getmGoogleApiClient(), "advertising", null, 1000L, this).setResultCallback(new ResultCallback<Connections.StartAdvertisingResult>() {
             @Override
             public void onResult(Connections.StartAdvertisingResult result) {
 
