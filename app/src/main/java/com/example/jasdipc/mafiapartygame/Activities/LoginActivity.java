@@ -1,5 +1,6 @@
 package com.example.jasdipc.mafiapartygame.Activities;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,9 +29,6 @@ public class LoginActivity extends AppCompatActivity {
         initNetworkVerification();
         initReferences();
         initOnClickListeners();
-
-        //nearbyHost = NearbyHost.getInstance(LoginActivity.this);
-        //nearbyClient = NearbyClient.getInstance(LoginActivity.this);
     }
 
     private void initOnClickListeners() {
@@ -41,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 nearbyHost = NearbyHost.getInstance(LoginActivity.this);
-                i.putExtra("status", "host");
+                i.putExtra("isHost", true);
                 finish();
                 startActivity(i);
             }
@@ -51,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 nearbyClient = NearbyClient.getInstance(LoginActivity.this);
-                i.putExtra("status", "client");
+                i.putExtra("isHost", false);
                 finish();
                 startActivity(i);
             }
@@ -66,7 +64,11 @@ public class LoginActivity extends AppCompatActivity {
     private void initNetworkVerification() {
         networkConnectivity = new NetworkConnectivity(LoginActivity.this);
         if (!networkConnectivity.isConnectedToNetwork()) {
-            //create an alert dialog
+            AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+            builder.setMessage("You are not connected to the network, please connect to the WIFI network")
+                    .setPositiveButton("Okay", null);
+            builder.create();
+            builder.show();
         }
     }
 

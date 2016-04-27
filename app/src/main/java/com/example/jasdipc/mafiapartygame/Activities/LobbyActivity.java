@@ -4,10 +4,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.example.jasdipc.mafiapartygame.Adapters.LobbyAdapter;
 import com.example.jasdipc.mafiapartygame.Models.Member;
 import com.example.jasdipc.mafiapartygame.R;
+import com.example.jasdipc.mafiapartygame.Singletons.NearbyClient;
+import com.example.jasdipc.mafiapartygame.Singletons.NearbyHost;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +20,9 @@ public class LobbyActivity extends AppCompatActivity {
     private RecyclerView rv;
     private List<Member> clientMembers = new ArrayList<>();
     private LobbyAdapter adapter;
+    private boolean isHost;
+    private NearbyHost nearbyHost;
+    private NearbyClient nearbyClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,5 +36,23 @@ public class LobbyActivity extends AppCompatActivity {
 
         adapter =  new LobbyAdapter(clientMembers, LobbyActivity.this);
         rv.setAdapter(adapter);
+
+        isHost = getIntent().getBooleanExtra("isHost", false);
+
+        if (isHost) {
+            initHost();
+        } else {
+            initPlayer();
+        }
+    }
+
+    private void initHost() {
+        nearbyHost = NearbyHost.getInstance(LobbyActivity.this);
+        nearbyHost.advertise("");
+    }
+
+    private void initPlayer() {
+        nearbyClient = NearbyClient.getInstance(LobbyActivity.this);
+        nearbyClient.discover();
     }
 }

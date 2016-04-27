@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.jasdipc.mafiapartygame.Activities.LobbyActivity">
+    tools:context="com.example.jasdipc.mafiapartygame.Activities.LobbyActivity"
+    android:id="@+id/rel_layout">
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
