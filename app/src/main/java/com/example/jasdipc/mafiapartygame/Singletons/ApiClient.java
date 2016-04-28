@@ -31,6 +31,8 @@ public class ApiClient implements GoogleApiClient.ConnectionCallbacks,
                 .addOnConnectionFailedListener(this)
                 .addApi(Nearby.CONNECTIONS_API)
                 .build();
+
+        mGoogleApiClient.connect();
     }
 
     public void connect() {

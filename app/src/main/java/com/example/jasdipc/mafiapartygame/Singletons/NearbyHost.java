@@ -14,8 +14,13 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.nearby.Nearby;
+import com.google.android.gms.nearby.connection.AppIdentifier;
+import com.google.android.gms.nearby.connection.AppMetadata;
 import com.google.android.gms.nearby.connection.Connections;
 import com.google.android.gms.nearby.connection.ConnectionsStatusCodes;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NearbyHost implements Connections.MessageListener,
         Connections.ConnectionRequestListener{
@@ -45,7 +50,7 @@ public class NearbyHost implements Connections.MessageListener,
 
         }
 
-        Nearby.Connections.startAdvertising(apiClient.getmGoogleApiClient(), "advertising", null, 1000L, this).setResultCallback(new ResultCallback<Connections.StartAdvertisingResult>() {
+        Nearby.Connections.startAdvertising(apiClient.getmGoogleApiClient(), "advertising", null, 0, this).setResultCallback(new ResultCallback<Connections.StartAdvertisingResult>() {
             @Override
             public void onResult(Connections.StartAdvertisingResult result) {
 

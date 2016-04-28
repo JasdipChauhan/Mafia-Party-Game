@@ -9,6 +9,7 @@ import android.util.Log;
 import com.example.jasdipc.mafiapartygame.Adapters.LobbyAdapter;
 import com.example.jasdipc.mafiapartygame.Models.Member;
 import com.example.jasdipc.mafiapartygame.R;
+import com.example.jasdipc.mafiapartygame.Singletons.ApiClient;
 import com.example.jasdipc.mafiapartygame.Singletons.NearbyClient;
 import com.example.jasdipc.mafiapartygame.Singletons.NearbyHost;
 
@@ -23,21 +24,22 @@ public class LobbyActivity extends AppCompatActivity {
     private boolean isHost;
     private NearbyHost nearbyHost;
     private NearbyClient nearbyClient;
+    private ApiClient apiClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lobby);
 
+        apiClient = ApiClient.getApiClientInstance(LobbyActivity.this);
         rv = (RecyclerView) findViewById(R.id.rv);
+        isHost = getIntent().getBooleanExtra("isHost", false);
 
         LinearLayoutManager llm = new LinearLayoutManager(LobbyActivity.this);
         rv.setLayoutManager(llm);
 
         adapter =  new LobbyAdapter(clientMembers, LobbyActivity.this);
         rv.setAdapter(adapter);
-
-        isHost = getIntent().getBooleanExtra("isHost", false);
 
         if (isHost) {
             initHost();
@@ -54,5 +56,12 @@ public class LobbyActivity extends AppCompatActivity {
     private void initPlayer() {
         nearbyClient = NearbyClient.getInstance(LobbyActivity.this);
         nearbyClient.discover();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        apiClient = ApiClient.getApiClientInstance(LobbyActivity.this);
+        apiClient.connect();
     }
 }

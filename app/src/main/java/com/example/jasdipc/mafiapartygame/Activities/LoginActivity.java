@@ -11,6 +11,7 @@ import android.widget.Button;
 import com.example.jasdipc.mafiapartygame.R;
 import com.example.jasdipc.mafiapartygame.Singletons.*;
 import com.example.jasdipc.mafiapartygame.Verification.*;
+import com.google.android.gms.nearby.Nearby;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -26,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        apiClient = ApiClient.getApiClientInstance(LoginActivity.this);
 
         initNetworkVerification();
         initReferences();
@@ -73,17 +75,19 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    @Override
+   /*@Override
     protected void onStop() {
         super.onStop();
+        apiClient = ApiClient.getApiClientInstance(LoginActivity.this);
         apiClient.disconnect();
-    }
+        Log.i("api login activity", "disconnecting");
+    }*/
 
     @Override
     protected void onStart() {
         super.onStart();
         apiClient = ApiClient.getApiClientInstance(LoginActivity.this);
         apiClient.connect();
+        Log.i("api login activity", "connecting");
     }
-
 }
