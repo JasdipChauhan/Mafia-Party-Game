@@ -5,7 +5,6 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.jasdipc.mafiapartygame.Callbacks.*;
-import com.example.jasdipc.mafiapartygame.Models.*;
 import com.example.jasdipc.mafiapartygame.R;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
@@ -20,20 +19,20 @@ public class NearbyClient implements Connections.MessageListener,
     private static NearbyClient nearbyClient;
     private static Context mContext;
     private ApiClient apiClient;
-    public static NewMemberInterface newMemberEvent;
+    public static MemberDiscoveryInterface memberDiscoveryInterface;
 
-    public static NearbyClient getInstance(Context mContext, NewMemberInterface newMemberEvent) {
+    public static NearbyClient getInstance(Context mContext, MemberDiscoveryInterface newMemberEvent) {
         if (nearbyClient == null) {
             nearbyClient = new NearbyClient(mContext, newMemberEvent);
         }
         NearbyClient.mContext = mContext;
-        NearbyClient.newMemberEvent = newMemberEvent;
+        NearbyClient.memberDiscoveryInterface = newMemberEvent;
         return nearbyClient;
     }
 
-    private NearbyClient(Context mContext, NewMemberInterface newMemberEvent) {
+    private NearbyClient(Context mContext, MemberDiscoveryInterface newMemberEvent) {
         this.mContext = mContext;
-        this.newMemberEvent = newMemberEvent;
+        this.memberDiscoveryInterface = newMemberEvent;
         apiClient = ApiClient.getApiClientInstance(mContext);
         apiClient.connect();
     }
@@ -45,7 +44,7 @@ public class NearbyClient implements Connections.MessageListener,
         Nearby.Connections.startDiscovery(apiClient.getmGoogleApiClient(), serviceID, 0L, this).setResultCallback(new ResultCallback<Status>() {
             @Override
             public void onResult(Status status) {
-                if(status.isSuccess()) {
+                if (status.isSuccess()) {
                     Log.i("discovering", "working");
                 } else {
                     Log.i("discovering", "failed");
@@ -57,13 +56,22 @@ public class NearbyClient implements Connections.MessageListener,
 
     @Override
     public void onEndpointFound(String endpointID, String deviceID, String serviceID, String name) {
-        Toast.makeText(mContext, name, Toast.LENGTH_SHORT).show();
-        Toast.makeText(mContext, endpointID, Toast.LENGTH_SHORT).show();
-        newMemberEvent.foundNewMember(name, endpointID);
+        memberDiscoveryInterface.foundNewMember(name, endpointID);
     }
 
     @Override
     public void onEndpointLost(String endpointID) {
+        memberDiscoveryInterface.lostMember(endpointID);
+    }
+
+    public void sendRequest(final String endpointID, String usersName) {
+
+        Nearby.Connections.sendConnectionRequest(apiClient.getmGoogleApiClient(), "CLIENT NAME", endpointID, null, new Connections.ConnectionResponseCallback() {
+            @Override
+            public void onConnectionResponse(String s, Status status, byte[] bytes) {
+
+            }
+        }, this);
 
     }
 

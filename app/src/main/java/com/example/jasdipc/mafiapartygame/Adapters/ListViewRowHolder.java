@@ -12,14 +12,10 @@ public class ListViewRowHolder extends RecyclerView.ViewHolder {
     protected TextView player_name;
     protected Button invite_player_button;
 
-    public ListViewRowHolder(View itemView) {
+    public ListViewRowHolder(final View itemView) {
         super(itemView);
 
         player_name = (TextView) itemView.findViewById(R.id.player_name);
         invite_player_button = (Button) itemView.findViewById(R.id.invite_player_button);
-
-        itemView.setClickable(true);
     }
-
-
 }

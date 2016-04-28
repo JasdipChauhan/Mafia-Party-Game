@@ -19,6 +19,7 @@ public class LobbyAdapter extends RecyclerView.Adapter<ListViewRowHolder> {
     private List<Member> membersList = new ArrayList<>();
     private int lastPosition = -1;
     private Context mContext;
+    private View currentView;
 
     public LobbyAdapter(List<Member> membersList, Context mContext) {
         this.membersList = membersList;
@@ -33,13 +34,25 @@ public class LobbyAdapter extends RecyclerView.Adapter<ListViewRowHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ListViewRowHolder holder, int position) {
+    public void onBindViewHolder(ListViewRowHolder holder, final int position) {
         Member member = membersList.get(position);
 
         holder.player_name.setText(member.getName());
+        holder.invite_player_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
+
+        currentView = holder.itemView;
         setAnimation(holder.itemView, position);
+
+
+
+        //I dont know what this is for (below)
         holder.getLayoutPosition();
+        /////
     }
 
     @Override
@@ -50,6 +63,21 @@ public class LobbyAdapter extends RecyclerView.Adapter<ListViewRowHolder> {
     public void add(Member member) {
         membersList.add(member);
         notifyItemInserted(membersList.size()-1);
+    }
+
+    public void remove(String endpointID) {
+        boolean isMemberFound = false;
+        int position = 0;
+
+        for (;position < membersList.size() && !isMemberFound; position++) {
+            if (membersList.get(position).getEndpoint().equals(endpointID)) {
+                isMemberFound = true;
+            }
+        }
+        position--;
+
+        membersList.remove(position);
+        notifyItemRemoved(position);
     }
 
     private void setAnimation(View viewToAnimate, int position)

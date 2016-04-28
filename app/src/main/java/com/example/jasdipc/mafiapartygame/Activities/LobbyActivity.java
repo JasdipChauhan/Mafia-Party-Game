@@ -5,10 +5,9 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.jasdipc.mafiapartygame.Adapters.LobbyAdapter;
-import com.example.jasdipc.mafiapartygame.Callbacks.NewMemberInterface;
+import com.example.jasdipc.mafiapartygame.Callbacks.MemberDiscoveryInterface;
 import com.example.jasdipc.mafiapartygame.Models.Member;
 import com.example.jasdipc.mafiapartygame.R;
 import com.example.jasdipc.mafiapartygame.Singletons.ApiClient;
@@ -18,7 +17,7 @@ import com.example.jasdipc.mafiapartygame.Singletons.NearbyHost;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LobbyActivity extends AppCompatActivity implements NewMemberInterface{
+public class LobbyActivity extends AppCompatActivity implements MemberDiscoveryInterface {
 
     private RecyclerView rv;
     private List<Member> clientMembers = new ArrayList<>();
@@ -61,6 +60,17 @@ public class LobbyActivity extends AppCompatActivity implements NewMemberInterfa
     }
 
     @Override
+    public void foundNewMember(String name, String endpointID) {
+        adapter.add(new Member(name, endpointID));
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void lostMember(String endpointID) {
+        adapter.remove(endpointID);
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
         apiClient = ApiClient.getApiClientInstance(LobbyActivity.this);
@@ -68,8 +78,10 @@ public class LobbyActivity extends AppCompatActivity implements NewMemberInterfa
     }
 
     @Override
-    public void foundNewMember(String name, String endpointID) {
-        adapter.add(new Member(name, endpointID));
-        adapter.notifyDataSetChanged();
+    protected void onStop() {
+        super.onStop();
+        apiClient = ApiClient.getApiClientInstance(LobbyActivity.this);
+        apiClient.disconnect();
+        Log.i("api login activity", "disconnecting");
     }
 }
