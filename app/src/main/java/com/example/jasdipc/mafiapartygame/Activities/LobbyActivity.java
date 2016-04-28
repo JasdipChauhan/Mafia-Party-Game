@@ -20,7 +20,7 @@ import java.util.List;
 public class LobbyActivity extends AppCompatActivity implements MemberDiscoveryInterface {
 
     private RecyclerView rv;
-    private List<Member> clientMembers = new ArrayList<>();
+    public List<Member> clientMembers = new ArrayList<>();
     private LobbyAdapter adapter;
     private boolean isHost;
     private NearbyHost nearbyHost;

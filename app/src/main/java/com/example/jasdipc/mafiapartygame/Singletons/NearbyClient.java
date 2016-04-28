@@ -5,12 +5,17 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.jasdipc.mafiapartygame.Callbacks.*;
+import com.example.jasdipc.mafiapartygame.Models.Member;
 import com.example.jasdipc.mafiapartygame.R;
+import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.nearby.Nearby;
 import com.google.android.gms.nearby.connection.Connections;
+import com.google.android.gms.nearby.connection.ConnectionsStatusCodes;
+
+import java.util.List;
 
 
 public class NearbyClient implements Connections.MessageListener,
@@ -66,10 +71,17 @@ public class NearbyClient implements Connections.MessageListener,
 
     public void sendRequest(final String endpointID, String usersName) {
 
-        Nearby.Connections.sendConnectionRequest(apiClient.getmGoogleApiClient(), "CLIENT NAME", endpointID, null, new Connections.ConnectionResponseCallback() {
+        Nearby.Connections.sendConnectionRequest(apiClient.getmGoogleApiClient(), usersName, endpointID, null, new Connections.ConnectionResponseCallback() {
             @Override
-            public void onConnectionResponse(String s, Status status, byte[] bytes) {
-
+            public void onConnectionResponse(String remoteEndpointID, Status status, byte[] payload) {
+                switch (status.getStatusCode()) {
+                    case ConnectionsStatusCodes.STATUS_OK:
+                        Toast.makeText(mContext, "Connection Successful!", Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
+                        Toast.makeText(mContext, "No response", Toast.LENGTH_SHORT).show();
+                        break;
+                }
             }
         }, this);
 

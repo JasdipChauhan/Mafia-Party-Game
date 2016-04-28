@@ -75,8 +75,17 @@ public class NearbyHost implements Connections.MessageListener,
     }
 
     @Override
-    public void onConnectionRequest(String s, String s1, String s2, byte[] bytes) {
+    public void onConnectionRequest(String remoteEndpointID, String remoteDeviceID, String remoteEndpointName, byte[] payload) {
+        Toast.makeText(mContext, remoteEndpointName + " wants to connect, woops I already accepted fam", Toast.LENGTH_SHORT).show();
 
+        Nearby.Connections.acceptConnectionRequest(apiClient.getmGoogleApiClient(), remoteEndpointID, payload, this).setResultCallback(new ResultCallback<Status>() {
+            @Override
+            public void onResult(Status status) {
+                if (status.isSuccess()) {
+                    Toast.makeText(mContext, "acceptance went well", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override

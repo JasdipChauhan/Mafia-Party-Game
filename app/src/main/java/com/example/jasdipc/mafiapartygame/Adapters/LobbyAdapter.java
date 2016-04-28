@@ -7,9 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Toast;
 
+import com.example.jasdipc.mafiapartygame.Activities.LobbyActivity;
+import com.example.jasdipc.mafiapartygame.Callbacks.MemberDiscoveryInterface;
 import com.example.jasdipc.mafiapartygame.Models.Member;
 import com.example.jasdipc.mafiapartygame.R;
+import com.example.jasdipc.mafiapartygame.Singletons.NearbyClient;
+import com.example.jasdipc.mafiapartygame.Singletons.NearbyHost;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +25,8 @@ public class LobbyAdapter extends RecyclerView.Adapter<ListViewRowHolder> {
     private int lastPosition = -1;
     private Context mContext;
     private View currentView;
+    private NearbyClient nearbyClient;
+    private NearbyHost nearbyHost;
 
     public LobbyAdapter(List<Member> membersList, Context mContext) {
         this.membersList = membersList;
@@ -41,7 +48,8 @@ public class LobbyAdapter extends RecyclerView.Adapter<ListViewRowHolder> {
         holder.invite_player_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                nearbyClient = NearbyClient.getInstance(mContext, (MemberDiscoveryInterface) mContext);
+                nearbyClient.sendRequest(membersList.get(position).getEndpoint(), "GET NAME FROM SINGLETON");
             }
         });
 
