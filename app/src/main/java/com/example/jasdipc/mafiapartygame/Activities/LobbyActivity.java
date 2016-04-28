@@ -69,7 +69,6 @@ public class LobbyActivity extends AppCompatActivity implements NewMemberInterfa
 
     @Override
     public void foundNewMember(String name, String endpointID) {
-        Toast.makeText(LobbyActivity.this, "New member callback called", Toast.LENGTH_SHORT).show();
         adapter.add(new Member(name, endpointID));
         adapter.notifyDataSetChanged();
     }

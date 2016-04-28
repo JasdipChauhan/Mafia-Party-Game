@@ -37,6 +37,8 @@ public class LobbyAdapter extends RecyclerView.Adapter<ListViewRowHolder> {
         Member member = membersList.get(position);
 
         holder.player_name.setText(member.getName());
+
+        setAnimation(holder.itemView, position);
         holder.getLayoutPosition();
     }
 
@@ -60,5 +62,4 @@ public class LobbyAdapter extends RecyclerView.Adapter<ListViewRowHolder> {
             lastPosition = position;
         }
     }
-
 }

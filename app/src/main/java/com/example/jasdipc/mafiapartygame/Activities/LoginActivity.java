@@ -88,6 +88,5 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
         apiClient = ApiClient.getApiClientInstance(LoginActivity.this);
         apiClient.connect();
-        Log.i("api login activity", "connecting");
     }
 }
