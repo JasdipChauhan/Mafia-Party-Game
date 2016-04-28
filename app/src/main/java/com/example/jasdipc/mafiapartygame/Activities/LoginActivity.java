@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         host_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nearbyHost = NearbyHost.getInstance(LoginActivity.this);
+                //nearbyHost = NearbyHost.getInstance(LoginActivity.this);
                 i.putExtra("isHost", true);
                 finish();
                 startActivity(i);
@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
         client_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nearbyClient = NearbyClient.getInstance(LoginActivity.this);
+                //nearbyClient = NearbyClient.getInstance(LoginActivity.this);
                 i.putExtra("isHost", false);
                 finish();
                 startActivity(i);

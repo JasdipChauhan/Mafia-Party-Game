@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.jasdipc.mafiapartygame.Adapters.LobbyAdapter;
+import com.example.jasdipc.mafiapartygame.Callbacks.NewMemberInterface;
 import com.example.jasdipc.mafiapartygame.Models.Member;
 import com.example.jasdipc.mafiapartygame.R;
 import com.example.jasdipc.mafiapartygame.Singletons.ApiClient;
@@ -16,7 +18,7 @@ import com.example.jasdipc.mafiapartygame.Singletons.NearbyHost;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LobbyActivity extends AppCompatActivity {
+public class LobbyActivity extends AppCompatActivity implements NewMemberInterface{
 
     private RecyclerView rv;
     private List<Member> clientMembers = new ArrayList<>();
@@ -54,7 +56,7 @@ public class LobbyActivity extends AppCompatActivity {
     }
 
     private void initPlayer() {
-        nearbyClient = NearbyClient.getInstance(LobbyActivity.this);
+        nearbyClient = NearbyClient.getInstance(LobbyActivity.this, this);
         nearbyClient.discover();
     }
 
@@ -63,5 +65,12 @@ public class LobbyActivity extends AppCompatActivity {
         super.onStart();
         apiClient = ApiClient.getApiClientInstance(LobbyActivity.this);
         apiClient.connect();
+    }
+
+    @Override
+    public void foundNewMember(String name, String endpointID) {
+        Toast.makeText(LobbyActivity.this, "New member callback called", Toast.LENGTH_SHORT).show();
+        adapter.add(new Member(name, endpointID));
+        adapter.notifyDataSetChanged();
     }
 }
